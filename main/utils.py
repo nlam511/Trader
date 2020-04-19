@@ -2,7 +2,7 @@ from typing import List
 import pandas as pd
 
 
-def def_list_to_pandas(data: List, drop_columns: List = None):
+def def_list_to_pandas(data: List, drop_columns: List = []):
     """
     Function to convert a list of dictionaries into a pandas data frame
 
