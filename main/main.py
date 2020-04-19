@@ -11,7 +11,7 @@ def main():
 
 
 def olhc_average(df: PandasDataFrame, value: float):
-    time = pd.to_datetime(df['datetime'], unit="ms")
+    time = pd.to_datetime(df['datetime'], unit="ms") + pd.Timedelta('-04:00:00')
     sum = (df.open + df.close + df.high + df.low) / value
     return pd.DataFrame({'datetime': time, 'sum': sum}, columns=['datetime', 'sum'])
 
