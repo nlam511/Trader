@@ -5,20 +5,15 @@ from typing import TypeVar, List
 PandasDataFrame = TypeVar('pd.core.frame.DataFrame')
 
 def main():
-    df = utils.def_list_to_pandas(test_data)
-    sum = olhc_average(df, 4)
-    print('done')
+    initial_data = utils.def_list_to_pandas(test_data)
+    olhc4= olhc_average(initial_data, 4)
+    print(olhc4)
 
 
 def olhc_average(df: PandasDataFrame, value: float):
-    sum = df.open + df.close + df.high + df.low
-    sum_div = sum / value
-    return sum
-
-
-
-
-
+    time = pd.to_datetime(df['datetime'], unit="ms")
+    sum = (df.open + df.close + df.high + df.low) / value
+    return pd.DataFrame({'datetime': time, 'sum': sum}, columns=['datetime', 'sum'])
 
 
 
