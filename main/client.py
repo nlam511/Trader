@@ -11,3 +11,5 @@ class Client:
 
     def calculate_ema(self):
         pass
+
+    #hello
